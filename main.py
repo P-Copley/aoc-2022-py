@@ -1,0 +1,3 @@
+def solution(lines):
+  pass
+
