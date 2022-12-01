@@ -16,8 +16,6 @@ def xtest_solves_simple_case():
 '8000',
 '9000',
 '',
-'',
-'',
 '10000',
 '']
   result = solution(testLines);
