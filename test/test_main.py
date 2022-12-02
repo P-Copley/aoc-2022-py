@@ -9,7 +9,7 @@ def xtest_solves_simple_case():
 'C Z',
 ]
   result = solution(testLines);
-  expected = 15
+  expected = 12
   assert result == expected
   print(result)
 
