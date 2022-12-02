@@ -3,23 +3,13 @@ from main import solution
 
 
 def xtest_solves_simple_case():
-  testLines = ['1000',
-'2000',
-'3000',
-'',
-'4000',
-'',
-'5000',
-'6000',
-'',
-'7000',
-'8000',
-'9000',
-'',
-'10000',
-'']
+  testLines = [
+'A Y',
+'B X',
+'C Z',
+]
   result = solution(testLines);
-  expected = 25000
+  expected = 15
   assert result == expected
   print(result)
 
