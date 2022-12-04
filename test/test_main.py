@@ -12,7 +12,7 @@ def xtest_solves_simple_case():
         '2-6,4-8',
     ]
     result = solution(testLines)
-    expected = 2
+    expected = 4
     assert result == expected
     print(result)
 
