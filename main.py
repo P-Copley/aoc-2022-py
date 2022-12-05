@@ -12,14 +12,14 @@ def solution(lines):
     # populate initial towers
     # ignore number line with len - 2
     for i in range(len(towerLines) - 2, -1, -1):
-        exp = 0
+        mult = 0
         for j in range(1, len(towerLines[i]), 4):
             letter = towerLines[i][j]
             if (letter != ' '):
                 # +4 step in the string is offset by 3n -1 to line up with zero indexing
-                towerIndex = j - (3 * exp) - 1
+                towerIndex = j - (3 * mult) - 1
                 towers[towerIndex].append(letter)
-            exp += 1
+            mult += 1
 
     moves = rawMoves.split('\n')
     for _, move in enumerate(moves):
