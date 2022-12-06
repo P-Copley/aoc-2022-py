@@ -4,18 +4,10 @@ from main import solution
 
 def xtest_solves_simple_case():
     testLines = [
-        '''    [D]    
-[N] [C]    
-[Z] [M] [P]
- 1   2   3''',
-
-        '''move 1 from 2 to 1
-move 3 from 1 to 3
-move 2 from 2 to 1
-move 1 from 1 to 2'''
+        '''mjqjpqmgbljsphdztnvjfqwrcgsmlb'''
     ]
     result = solution(testLines)
-    expected = 'MCD'
+    expected = 7
     assert result == expected
     print(result)
 
