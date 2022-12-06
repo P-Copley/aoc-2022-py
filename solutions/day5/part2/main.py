@@ -31,5 +31,5 @@ def solution(lines):
         del fromTower[-moveCount: len(fromTower)]
         towers[toCol - 1] += stackToMove
 
-    part1 = reduce(lambda acc, tower: acc + tower[-1], towers, '')
-    return part1
+    part2 = reduce(lambda acc, tower: acc + tower[-1], towers, '')
+    return part2
