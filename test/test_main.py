@@ -7,7 +7,7 @@ def xtest_solves_simple_case():
         '''mjqjpqmgbljsphdztnvjfqwrcgsmlb'''
     ]
     result = solution(testLines)
-    expected = 7
+    expected = 19
     assert result == expected
     print(result)
 
