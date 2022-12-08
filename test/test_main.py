@@ -2,7 +2,7 @@ import lib.utils
 from main import solution
 
 
-def xtest_solves_simple_case():
+def test_solves_simple_case():
     testLines = [
         '$ cd /',
         '$ ls',
@@ -29,12 +29,12 @@ def xtest_solves_simple_case():
         '7214296 k'
     ]
     result = solution(testLines)
-    expected = 95437
+    expected = 24933642
     assert result == expected
     print(result)
 
 
-def test_solves_input_case():
+def xtest_solves_input_case():
     testLines = lib.utils.readInput()
     result = solution(testLines)
     print(result)
