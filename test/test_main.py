@@ -11,12 +11,12 @@ def test_solves_simple_case():
         '35390',
     ]
     result = solution(testLines)
-    expected = 21
+    expected = 8
     assert result == expected
     print(result)
 
 
-def test_solves_input_case():
+def xtest_solves_input_case():
     testLines = lib.utils.readInput()
     result = solution(testLines)
     print(result)
