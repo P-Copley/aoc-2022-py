@@ -21,32 +21,59 @@ class Knot:
             self.y -= distance
         self.visited.add(f'{self.y},{self.x}')
 
-    def moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(self, newPos):
-        self.x = newPos.x
-        self.y = newPos.y
+    def moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(self, newX, newY):
+        self.x = newX
+        self.y = newY
+        self.visited.add(f'{self.y},{self.x}')
 
     def follow(self, knotToFollow, direction):
-        # distanceAway = knotToFollow.x - self.x + knotToFollow.y - self.y
-        # if distanceAway > 1
-        # print(f'{self.y},{self.x}', f'{knotToFollow.y},{knotToFollow.x}')
+        dx = knotToFollow.x - self.x
+        dy = knotToFollow.y - self.y
+        distance = abs(dx) + abs(dy)
+        if (distance == 2):
+            if dx > 1:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x + 1, self.y)
+            if dx < -1:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x - 1, self.y)
+            if dy > 1:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x, self.y + 1)
+            if dy < -1:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x, self.y - 1)
+        if (distance == 3):
+            if dx > 0 and dy > 0:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x + 1, self.y + 1)
+            if dx > 0 and dy < 0:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x + 1, self.y - 1)
+            if dx < 0 and dy > 0:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x - 1, self.y + 1)
+            if dx < 0 and dy < 0:
+                self.moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(
+                    self.x - 1, self.y - 1)
+            # print('diag', dx, dy)
+        # if direction == 'U' and self.x != knotToFollow.x and (knotToFollow.y - self.y) < -1:
+        #     self.x = knotToFollow.x
+        # if direction == 'D' and self.x != knotToFollow.x and (knotToFollow.y - self.y) > 1:
+        #     self.x = knotToFollow.x
+        # if direction == 'R' and self.y != knotToFollow.y and (knotToFollow.x - self.x) > 1:
+        #     self.y = knotToFollow.y
+        # if direction == 'L' and self.y != knotToFollow.y and (knotToFollow.x - self.x) < -1:
+        #     self.y = knotToFollow.y
 
-        if direction == 'U' and self.x != knotToFollow.x and (knotToFollow.y - self.y) < -1:
-            self.x = knotToFollow.x
-        if direction == 'D' and self.x != knotToFollow.x and (knotToFollow.y - self.y) > 1:
-            self.x = knotToFollow.x
-        if direction == 'R' and self.y != knotToFollow.y and (knotToFollow.x - self.x) > 1:
-            self.y = knotToFollow.y
-        if direction == 'L' and self.y != knotToFollow.y and (knotToFollow.x - self.x) < -1:
-            self.y = knotToFollow.y
-
-        if knotToFollow.x - self.x > 1:
-            self.move('R', 1)
-        if knotToFollow.x - self.x < -1:
-            self.move('L', 1)
-        if knotToFollow.y - self.y > 1:
-            self.move('D', 1)
-        if knotToFollow.y - self.y < -1:
-            self.move('U', 1)
+        # if knotToFollow.x - self.x > 1:
+        #     self.move('R', 1)
+        # if knotToFollow.x - self.x < -1:
+        #     self.move('L', 1)
+        # if knotToFollow.y - self.y > 1:
+        #     self.move('D', 1)
+        # if knotToFollow.y - self.y < -1:
+        #     self.move('U', 1)
 
 
 def solution(lines):
@@ -55,13 +82,10 @@ def solution(lines):
     for _, line in enumerate(lines):
         direction, distance = line.split(' ')
         distance = int(distance)
-        fallInLineCount = 0
         while distance > 0:
             head.move(direction, 1)
-            # print(head.visited)
             tail.follow(head, direction)
             distance -= 1
-            fallInLineCount += 1
+        print(tail.visited, line)
 
-        # print(tail.getVisitCount(), tail.visited)
     return tail.getVisitCount()
