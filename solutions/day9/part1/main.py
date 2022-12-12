@@ -1,5 +1,3 @@
-
-
 class Knot:
     def __init__(self, name) -> None:
         self.x = 0
@@ -21,15 +19,7 @@ class Knot:
             self.y -= distance
         self.visited.add(f'{self.y},{self.x}')
 
-    def moveDirectlyToJailDoNotPassGoDoNotCollectTwoHundredDollars(self, newPos):
-        self.x = newPos.x
-        self.y = newPos.y
-
     def follow(self, knotToFollow, direction):
-        # distanceAway = knotToFollow.x - self.x + knotToFollow.y - self.y
-        # if distanceAway > 1
-        # print(f'{self.y},{self.x}', f'{knotToFollow.y},{knotToFollow.x}')
-
         if direction == 'U' and self.x != knotToFollow.x and (knotToFollow.y - self.y) < -1:
             self.x = knotToFollow.x
         if direction == 'D' and self.x != knotToFollow.x and (knotToFollow.y - self.y) > 1:
@@ -58,10 +48,8 @@ def solution(lines):
         fallInLineCount = 0
         while distance > 0:
             head.move(direction, 1)
-            # print(head.visited)
             tail.follow(head, direction)
             distance -= 1
             fallInLineCount += 1
 
-        # print(tail.getVisitCount(), tail.visited)
     return tail.getVisitCount()

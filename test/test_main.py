@@ -2,12 +2,16 @@ import lib.utils
 from main import solution
 
 
-def xtest_solves_simple_case():
+def test_solves_simple_case():
     testLines = [
-
+        'Sabqponm',
+        'abcryxxl',
+        'accszExk',
+        'acctuvwj',
+        'abdefghi',
     ]
     result = solution(testLines)
-    expected = 13140
+    expected = 31
     assert result == expected
     print(result)
 

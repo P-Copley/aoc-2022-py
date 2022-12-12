@@ -1,5 +1,3 @@
-
-
 class Knot:
     def __init__(self, name) -> None:
         self.x = 0

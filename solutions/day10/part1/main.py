@@ -6,7 +6,6 @@ def solution(lines):
     pendingOperations = {}
     signalStrengths = []
     while cycleNum < 221:
-        # print(cycleNum, pendingOperations, register)
         if (cycleNum - 20) % 40 == 0:
             signalStrengths.append(cycleNum * register)
             print(cycleNum, register)
