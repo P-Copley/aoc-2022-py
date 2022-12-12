@@ -11,7 +11,7 @@ def test_solves_simple_case():
         'abdefghi',
     ]
     result = solution(testLines)
-    expected = 31
+    expected = 29
     assert result == expected
     print(result)
 
